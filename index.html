@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Sheldoncito — Chatbot de Física</title>
+
+<!-- Estilos -->
+<link rel="stylesheet" href="style.css">
+
+<!-- (Opcional) MathJax: activa desde la UI si quieres fórmulas bonitas -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> -->
+</head>
+<body>
+<div class="wa-app">
+
+<!-- cabecera estilo WhatsApp compacta -->
+<header class="wa-header">
+<img src="assets/rayo_bw.svg" class="wa-logo" alt="rayo">
+<div class="wa-title">
+<div class="name">Sheldoncito</div>
+<div class="subtitle">Tutor de Física — Laboratorio</div>
+</div>
+
+<div class="mode-controls">
+<label for="personaMode">Modo</label>
+<select id="personaMode">
+<option value="profesor">Profesor</option>
+<option value="cortes">Cortés</option>
+<option value="sarcastico">Sarcástico</option>
+</select>
+</div>
+</header>
+
+<!-- contenedor principal -->
+<main class="wa-main">
+<!-- barra lateral de temas (colapsable en móvil) -->
+<aside class="wa-side" id="sideTopics">
+<h4>Temas</h4>
+<ul id="topicList">
+<li data-topic="cinematica">Cinemática</li>
+<li data-topic="dinamica">Dinámica (F=ma)</li>
+<li data-topic="energia">Energía y Trabajo</li>
+<li data-topic="vectores">Vectores</li>
+<li data-topic="hooke">Ley de Hooke</li>
+<li data-topic="electro">Electricidad (Ohm)</li>
+<li data-topic="ondas">Ondas</li>
+<li data-topic="hidro">Hidrostática</li>
+<li data-topic="proyectiles">Proyectiles</li>
+</ul>
+
+<div class="side-actions">
+<button id="startTutor">Iniciar Tutor</button>
+<select id="lessonSelect"></select>
+<button id="saveConv">Guardar</button>
+<button id="loadConv">Cargar</button>
+</div>
+
+<label class="side-opt"><input type="checkbox" id="showSteps" checked> Mostrar pasos</label>
+<label class="side-opt"><input type="checkbox" id="useMathJax"> Usar MathJax (necesita internet)</label>
+</aside>
+
+<!-- chat -->
+<section class="wa-chat">
+<div id="chatWindow" class="chat-window" aria-live="polite"></div>
+
+<div class="composer">
+<input id="userInput" type="text" placeholder='Ej.: "Un coche de 1000 kg acelera de 0 a 20 m/s en 10 s. Calcula la fuerza promedio."' autocomplete="off">
+<button id="sendBtn">Enviar</button>
+</div>
+</section>
+</main>
+</div>
+
+<!-- Lógica -->
+<script src="sheldoncito.js"></script>
+</body>
+</html>
